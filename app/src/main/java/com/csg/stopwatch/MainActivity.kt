@@ -27,6 +27,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        // isRunning value monitoring
+        viewModel.isRunning.observe(this, Observer {isRunning ->
+            if (isRunning) {
+                button_start.text = "pause"
+            } else {
+                button_start.text = "start"
+            }
+        })
+
         button_start.setOnClickListener {
             viewModel.onStartButtonClicked()
 
